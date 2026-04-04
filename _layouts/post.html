@@ -1,0 +1,74 @@
+---
+layout: default
+---
+<article class="post-single">
+  <header class="post-header">
+    <div class="container">
+      {% if page.category %}
+      <span class="post-category">{{ page.category | upcase }}</span>
+      {% endif %}
+      <h1 class="post-title">{{ page.title }}</h1>
+      {% if page.description %}
+      <p class="post-subtitle">{{ page.description }}</p>
+      {% endif %}
+      <div class="post-meta">
+        <span class="post-author">{{ page.author | default: site.author }}</span>
+        <span class="post-sep">·</span>
+        <time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%B %d, %Y" }}</time>
+        <span class="post-sep">·</span>
+        <span class="reading-time" id="readingTime"></span>
+      </div>
+      {% if page.tags %}
+      <div class="post-tags">
+        {% for tag in page.tags %}
+        <span class="tag">{{ tag }}</span>
+        {% endfor %}
+      </div>
+      {% endif %}
+    </div>
+  </header>
+
+  {% if page.image %}
+  <div class="post-hero-image">
+    <div class="container">
+      <img src="{{ page.image | relative_url }}" alt="{{ page.title }}" loading="lazy" />
+    </div>
+  </div>
+  {% endif %}
+
+  <div class="post-body">
+    <div class="container">
+      <div class="post-content">
+        {{ content }}
+      </div>
+
+      <!-- DISCLAIMER FOR SECURITY CONTENT -->
+      {% if page.category == 'ethical-hacking' or page.category == 'osint' or page.category == 'tools' %}
+      <div class="post-disclaimer">
+        <strong>Disclaimer:</strong> This content is published for educational and research purposes only.
+        All techniques described are intended for use in authorized environments only.
+        The author and NordVault Security accept no liability for misuse. See full <a href="/disclaimer/">Disclaimer</a>.
+      </div>
+      {% endif %}
+
+      <div class="post-footer">
+        <div class="post-share">
+          <span>Share:</span>
+          <a href="https://www.linkedin.com/sharing/share-offsite/?url={{ page.url | absolute_url | url_encode }}" target="_blank" rel="noopener">LinkedIn</a>
+          <a href="https://twitter.com/intent/tweet?url={{ page.url | absolute_url | url_encode }}&text={{ page.title | url_encode }}" target="_blank" rel="noopener">X / Twitter</a>
+        </div>
+        <a href="/blog/" class="btn-back">← All Articles</a>
+      </div>
+    </div>
+  </div>
+</article>
+
+<script>
+  // Reading time calculator
+  const content = document.querySelector('.post-content');
+  if (content) {
+    const words = content.innerText.split(/\s+/).length;
+    const mins = Math.ceil(words / 200);
+    document.getElementById('readingTime').textContent = mins + ' min read';
+  }
+</script>

@@ -1,0 +1,77 @@
+---
+layout: default
+title: "Research & Writing | Amritesh"
+description: "All cybersecurity articles, research, and analysis by Amritesh — covering data privacy, AI security, OSINT, blockchain, and cloud security."
+permalink: /blog/
+---
+<div style="padding-top: var(--nav-h);">
+<section style="padding: 4rem 0 2rem;">
+  <div class="container">
+    <span class="section-label">All Articles</span>
+    <h1 style="font-family:var(--font-display);font-size:clamp(2rem,4vw,3rem);font-weight:700;margin:1rem 0 0.5rem;">Research & Writing</h1>
+    <p style="color:var(--text-2);max-width:560px;">Cybersecurity analysis, data privacy insights, and threat breakdowns — always with official sources.</p>
+  </div>
+</section>
+
+<section style="padding: 2rem 0 5rem;">
+  <div class="container">
+
+    <!-- FILTER TAGS -->
+    <div style="display:flex;gap:0.5rem;flex-wrap:wrap;margin-bottom:2.5rem;" id="filterBar">
+      <button class="filter-btn active" onclick="filterPosts('all',this)">All</button>
+      <button class="filter-btn" onclick="filterPosts('cybersecurity',this)">Cybersecurity</button>
+      <button class="filter-btn" onclick="filterPosts('data-privacy',this)">Data Privacy</button>
+      <button class="filter-btn" onclick="filterPosts('crypto-blockchain',this)">Crypto & Blockchain</button>
+      <button class="filter-btn" onclick="filterPosts('ai-security',this)">AI Security</button>
+      <button class="filter-btn" onclick="filterPosts('osint',this)">OSINT</button>
+      <button class="filter-btn" onclick="filterPosts('cloud-security',this)">Cloud Security</button>
+    </div>
+
+    {% if site.posts.size > 0 %}
+    <div class="articles-grid" id="postsGrid">
+      {% for post in site.posts %}
+      <article class="article-card" data-category="{{ post.category }}">
+        {% if post.category %}<span class="article-cat">{{ post.category | upcase | replace: '-', ' ' }}</span>{% endif %}
+        <h3><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h3>
+        {% if post.description %}<p>{{ post.description }}</p>{% endif %}
+        <div class="article-meta">
+          <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%b %d, %Y" }}</time>
+          {% if post.tags %}
+          <div class="article-tags">
+            {% for tag in post.tags limit:2 %}<span class="tag-sm">{{ tag }}</span>{% endfor %}
+          </div>
+          {% endif %}
+        </div>
+      </article>
+      {% endfor %}
+    </div>
+    {% else %}
+    <div style="text-align:center;padding:4rem 0;">
+      <p style="font-family:var(--font-mono);color:var(--text-3);">$ ls _posts/</p>
+      <p style="font-family:var(--font-mono);color:var(--accent);margin-top:0.5rem;">First articles publishing soon.</p>
+      <a href="/contact/" class="btn-outline" style="display:inline-flex;margin-top:2rem;">Get notified →</a>
+    </div>
+    {% endif %}
+  </div>
+</section>
+</div>
+
+<style>
+.filter-btn {
+  background: var(--bg-card); border: 1px solid var(--border);
+  color: var(--text-3); font-family: var(--font-mono); font-size: 0.75rem;
+  padding: 0.4rem 0.9rem; border-radius: 100px; cursor: pointer;
+  transition: all 0.2s;
+}
+.filter-btn:hover { border-color: var(--border-md); color: var(--text); }
+.filter-btn.active { background: var(--accent); color: #000; border-color: var(--accent); }
+</style>
+<script>
+function filterPosts(cat, btn) {
+  document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  document.querySelectorAll('.article-card').forEach(card => {
+    card.style.display = (cat === 'all' || card.dataset.category === cat) ? '' : 'none';
+  });
+}
+</script>

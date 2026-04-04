@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+  <!-- SEO TAG PLUGIN — handles title, description, og tags automatically -->
+  {% seo %}
+
+  <!-- CANONICAL -->
+  <link rel="canonical" href="{{ page.url | absolute_url }}" />
+
+  <!-- PRECONNECT -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+  <!-- FONTS — Distinctive, premium choices -->
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300&family=Lora:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet" />
+
+  <!-- MAIN STYLESHEET -->
+  <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}" />
+
+  <!-- FEED -->
+  <link rel="alternate" type="application/rss+xml" title="{{ site.title }}" href="{{ '/feed.xml' | absolute_url }}" />
+
+  <!-- FAVICON -->
+  <link rel="icon" type="image/svg+xml" href="{{ '/assets/images/favicon.svg' | relative_url }}" />
+
+  <!-- SCHEMA.ORG PERSON MARKUP -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Amritesh",
+    "url": "{{ site.url }}",
+    "sameAs": [
+      "https://github.com/amritesh-sec"
+    ],
+    "jobTitle": "Cybersecurity Researcher & Advisor",
+    "knowsAbout": ["Cybersecurity", "Data Privacy", "OSINT", "Blockchain Security", "AI Security", "Cloud Security", "GRC"]
+  }
+  </script>
+
+  {% if page.layout == 'post' %}
+  <!-- SCHEMA.ORG ARTICLE MARKUP -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "{{ page.title }}",
+    "author": { "@type": "Person", "name": "{{ page.author | default: site.author }}" },
+    "datePublished": "{{ page.date | date_to_xmlschema }}",
+    "description": "{{ page.description | default: page.excerpt }}",
+    "url": "{{ page.url | absolute_url }}"
+  }
+  </script>
+  {% endif %}
+</head>
+<body class="{% if page.url == '/' %}page-home{% else %}page-inner{% endif %}">
+
+  <!-- GDPR COOKIE NOTICE -->
+  <div class="cookie-banner" id="cookieBanner">
+    <p>This site uses no tracking cookies. Analytics are privacy-first via Umami. <a href="/privacy/">Learn more</a></p>
+    <button onclick="dismissCookie()">Got it</button>
+  </div>
+
+  <!-- NAVIGATION -->
+  {% include nav.html %}
+
+  <!-- MAIN CONTENT -->
+  <main id="main-content">
+    {{ content }}
+  </main>
+
+  <!-- FOOTER -->
+  {% include footer.html %}
+
+  <!-- JS -->
+  <script src="{{ '/assets/js/main.js' | relative_url }}"></script>
+
+</body>
+</html>

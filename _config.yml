@@ -1,0 +1,107 @@
+# ============================================================
+# AMRITESH-SEC — Personal Cybersecurity Research Hub
+# _config.yml — Site Configuration
+# ============================================================
+
+# --- SITE IDENTITY ---
+title: "Amritesh | Cybersecurity Researcher"
+tagline: "Cybersecurity · Data Privacy · Blockchain · AI Security"
+description: "Independent cybersecurity researcher covering data protection, OSINT, blockchain security, AI threats, cloud security, and human risk. Trusted insights for US, UK, EU, and Nordic audiences."
+author: "Amritesh"
+email: ""  # leave blank — use Formspree contact form
+baseurl: ""
+url: "https://amritesh-sec.github.io"
+
+# --- BRAND ---
+brand:
+  name: "Amritesh"
+  tagline: "Researcher · Advisor · Speaker"
+  nordvault: "NordVault Security"
+  nordvault_url: "https://nordvaultsec.github.io"
+
+# --- SOCIAL ---
+social:
+  github: "amritesh-sec"
+  linkedin: ""       # add when ready
+  twitter: ""        # add when ready
+  mastodon: ""       # add when ready
+
+# --- TARGET REGIONS ---
+regions:
+  - "United States"
+  - "United Kingdom"
+  - "Germany"
+  - "Netherlands"
+  - "Nordic / Scandinavia"
+
+# --- SEO & INDEXING ---
+lang: "en"
+timezone: "Europe/London"
+permalink: /:categories/:title/
+paginate: 10
+paginate_path: "/blog/page:num/"
+
+# --- PLUGINS (all supported natively by GitHub Pages) ---
+plugins:
+  - jekyll-feed
+  - jekyll-sitemap
+  - jekyll-seo-tag
+  - jekyll-paginate
+
+# --- FEED ---
+feed:
+  title: "Amritesh — Cybersecurity Research"
+  path: "feed.xml"
+
+# --- SASS ---
+sass:
+  sass_dir: _sass
+  style: compressed
+
+# --- MARKDOWN ---
+markdown: kramdown
+highlighter: rouge
+kramdown:
+  input: GFM
+  syntax_highlighter: rouge
+  syntax_highlighter_opts:
+    css_class: "highlight"
+
+# --- COLLECTIONS ---
+collections:
+  tools:
+    output: true
+    permalink: /tools/:name/
+  casestudies:
+    output: true
+    permalink: /case-studies/:name/
+
+# --- DEFAULTS ---
+defaults:
+  - scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: "post"
+      author: "Amritesh"
+      image: "/assets/images/default-og.png"
+  - scope:
+      path: ""
+      type: "tools"
+    values:
+      layout: "tool"
+  - scope:
+      path: ""
+      type: "casestudies"
+    values:
+      layout: "casestudy"
+
+# --- EXCLUDE FROM BUILD ---
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - README.md
+  - node_modules
+  - vendor
+  - .git
+  - .github
