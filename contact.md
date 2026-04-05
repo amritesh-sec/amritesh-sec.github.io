@@ -42,7 +42,7 @@ permalink: /contact/
         <button class="form-tab" onclick="switchTab('submit')">Submit a Story</button>
       </div>
 
-      <form class="site-form" id="formContact" action="https://formspree.io/f/YOUR_FORMSPREE_ID" method="POST">
+      <form class="site-form" id="formContact" action="https://formspree.io/f/mwvwwwod" method="POST">
         <input type="hidden" name="_subject" value="Contact from amritesh-sec.github.io" />
         <div class="form-row">
           <div class="form-group">
@@ -80,7 +80,7 @@ permalink: /contact/
         <button type="submit" class="btn-submit">Send Message →</button>
       </form>
 
-      <form class="site-form hidden" id="formSubmit" action="https://formspree.io/f/YOUR_FORMSPREE_SUBMIT_ID" method="POST">
+      <form class="site-form hidden" id="formSubmit" action="https://formspree.io/f/xjgppprk" method="POST">
         <input type="hidden" name="_subject" value="Story Submission — amritesh-sec.github.io" />
         <div class="form-group">
           <label>Your Name</label>
