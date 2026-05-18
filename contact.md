@@ -17,7 +17,7 @@ permalink: /contact/
       <div style="margin-top:2rem;display:flex;flex-direction:column;gap:1.5rem;">
         <div>
           <p style="font-family:var(--font-mono);font-size:0.7rem;color:var(--text-3);margin-bottom:0.5rem;">FOR CONSULTING</p>
-          <p style="font-size:0.9rem;color:var(--text-2);">Cybersecurity advisory, GRC, data protection, AI security assessments — visit <a href="https://nordvaultsec.github.io">NordVault Security</a>.</p>
+          <!-- <p style="font-size:0.9rem;color:var(--text-2);">Cybersecurity advisory, GRC, data protection, AI security assessments — visit <a href="https://nordvaultsec.github.io">NordVault Security</a>.</p>  -->
         </div>
         <div>
           <p style="font-family:var(--font-mono);font-size:0.7rem;color:var(--text-3);margin-bottom:0.5rem;">FOR RESEARCH & MEDIA</p>
