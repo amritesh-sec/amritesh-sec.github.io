@@ -19,9 +19,9 @@ permalink: /about/
     </div>
     <div style="display:flex;flex-direction:column;gap:0.75rem;">
       <a href="https://github.com/amritesh-sec" target="_blank" rel="noopener" style="font-family:var(--font-mono);font-size:0.8rem;color:var(--accent);">github.com/amritesh-sec ↗</a>
-      <a href="https://github.com/NordVaultSec" target="_blank" rel="noopener" style="font-family:var(--font-mono);font-size:0.8rem;color:var(--text-3);">NordVault Security ↗</a> -->
+      <a href="https://github.com/NordVaultSec" target="_blank" rel="noopener" style="font-family:var(--font-mono);font-size:0.8rem;color:var(--text-3);">NordVault Security ↗</a> 
     </div>
-  </div>
+  </div> -->
 
   <div class="post-content">
     <span class="section-label">About</span>
