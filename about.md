@@ -45,10 +45,10 @@ permalink: /about/
     <h2>Speaking & Collaboration</h2>
     <p>I am working toward keynote speaking at events including BSides, Black Hat, and DEF CON. If you're organising a conference, panel, or workshop and want a rigorous, practitioner-led perspective — <a href="/contact/">get in touch</a>.</p>
 
-    <a href="/contact/" class="btn-primary" style="display:inline-flex;margin-top:1rem;">Work With Me →</a> -->
+    <a href="/contact/" class="btn-primary" style="display:inline-flex;margin-top:1rem;">Work With Me →</a> 
   </div>
 
 </div>
 </div>
-</section>
+</section> -->
 </div>
